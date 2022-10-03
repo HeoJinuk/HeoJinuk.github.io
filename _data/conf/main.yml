@@ -21,7 +21,7 @@ default_lng: en
 # to prevent adding languages with no folder
 # single language disables language switch
 # language order is linked to array order
-language_switch_lang_list: [en, ja, pt]
+language_switch_lang_list: [en]
 
 # if the opened page is not in the user's language list,
 # suggest language(s) matching with the one(s) in browser language list and user language list.
@@ -279,7 +279,7 @@ meta:
   schema_markup_post_type: BlogPosting
   schema_markup_post: true
   schema_markup_post_add_postbody: true
-  schema_markup_logo_img: /assets/img/favicons/apple-touch-icon.png
+  schema_markup_logo_img: /assets/img/favicon/apple-touch-icon.png
   schema_markup_about_img: /assets/img/about/about.jpg
   schema_markup_default_meta_img: /assets/img/about/about.jpg
   mobile_app: true
