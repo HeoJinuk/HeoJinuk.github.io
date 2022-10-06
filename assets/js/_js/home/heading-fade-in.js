@@ -10,6 +10,7 @@
     let home_heading = $(".home-heading");
 
     if (home_heading.length > 0) {
+      home_heading[0].style.backgroundImage = localStorage.getItem(colorScheme.storageKey) == 'dark' ? "url(/assets/img/home/home-heading-dark.jpg)" : "url(/assets/img/home/home-heading-light.jpg)";
       home_heading.hide();
       home_heading.fadeIn("slow");
     }
