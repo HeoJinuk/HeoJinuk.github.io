@@ -381,7 +381,7 @@ y_hat_ses['ses_forecast'].plot()
 
 
     
-![png](output_28_1.png)
+![png](/assets/img/posts/output_28_1.png)
     
 
 
@@ -430,7 +430,7 @@ y_hat_holt['holt_forecast'].plot()
 
 
     
-![png](output_35_2.png)
+![png](/assets/img/posts/output_35_2.png)
     
 
 
@@ -492,6 +492,6 @@ y_hat_hwa['hw_forecast'].plot()
 
 
     
-![png](output_45_2.png)
+![png](/assets/img/posts/output_45_2.png)
     
 
