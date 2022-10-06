@@ -31,7 +31,7 @@ layout: util/compress_js
     const colorScheme = storedColorScheme || userColorScheme || browserColorScheme;
 
     /******************************************************************/
-    let home_heading = $(".home-heading");
+    let home_heading = document.body.getElementsByClassName(".home-heading");
 
     if (home_heading.length > 0) {
         home_heading[0].style.backgroundImage = colorScheme ? "url(/assets/img/home/home-heading-dark.jpg)" : "url(/assets/img/home/home-heading-light.jpg)";
