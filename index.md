@@ -39,5 +39,5 @@ img: ":home-heading.jpg"
 
 {%- include util/auto-content-generator.liquid -%}
 {{ website_info_text_first }}
-
+Hi! Nice to Meet you.
 {{ website_info_text_second }}
