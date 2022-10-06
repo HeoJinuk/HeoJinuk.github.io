@@ -35,5 +35,6 @@ img: ":home-heading.jpg"
 #published: false
 ---
 {{ website_info_text_first }}
-Hi! Nice to Meet you.
+# Hello! 
+## Nice to Meet you.
 {{ website_info_text_second }}
