@@ -5,7 +5,7 @@
 brand: "Jinuk's Blog"
 
 # text below the brand name
-brand_sub_text: "$site_sample"
+brand_sub_text: "NLP / Time Series / Anomaly Detection"
 
 # used for seo meta post author (if it's not defined in post)
 name: "Jinuk Heo"
