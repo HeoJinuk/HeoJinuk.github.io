@@ -55,7 +55,11 @@ plt.show()
 - 평균들을 하나의 벡터로 나타내면, $\begin{bmatrix}93 \\ 82.5\end{bmatrix}$이다.
 - 이 벡터는 각 데이터의 평균으로 이루져 있으므로, 평균벡터라고 한다.
 - $n$차원의 데이터 $x = \{x_1, x_2, \cdots, x_k\}$에 대해 **평균벡터**(mean vector) $m$은 다음과 같이 정의된다.
+
+
 $$m = \frac{1}{k} \sum_{i=1}^k x_i$$
+
+
     - $m$은 $n$차원 벡터이다.
 
 > (참고) 데이터 $x$는 개수가 $k$개, 변량이 $n$개인 $n \times k$ 행렬이다.
@@ -78,6 +82,7 @@ $$
 \end{align*}
 $$
 
+
 <br>
 $$
 \text{변환된 데이터의 평균벡터}\ :\ \frac{1}{4}\left(
@@ -91,7 +96,7 @@ $$
 
 변환된 데이터를 그려보면 다음과 같이 된다.
 
-![image.png](attachment:image.png)
+![png](/assets/img/posts/PCA/fig1.png)
 
 이제 변환된 데이터를 가능한 한 많은 정보를 유지하면서 고차원의 데이터를 저차원의 데이터로 변환하려고 한다.  
 다음 중 어떤 경우가 가능한 많은 정보를 유지하는 경우일까?
@@ -99,7 +104,7 @@ $$
 위의 예시에 해당하는 국어, 영어 성적의 2차원 데이터를 1차원으로 차원 축소하는 경우를 살펴보자.
 - 국어, 영어 성적의 2차원 데이터를 어떤 단위 벡터 $u$로 정사영함으로써 1차원으로 차원 축소를 한다.
 
-![image.png](attachment:image.png)
+![png](/assets/img/posts/PCA/fig2.png)
 
 - (a)는 4개의 서로 다른 데이터를 $u = \left[\begin{matrix}1 \\ 0 \end{matrix}\right]$에 정사영하여 2개의 위치로 변환된 경우이고, 
 - (b)는 4개의 서로 다른 데이터를 $u = \left[\begin{matrix}0 \\ 1 \end{matrix}\right]$에 정사영하여 3개의 위치로 변환된 경우이고, 
@@ -328,7 +333,7 @@ $$Cu = \lambda u$$
 이것은 $C$에 대한 고유벡터와 고유값을 구하는 문제로 바꿀 수 있다.
 - $u$가 $C$의 고유벡터이고, $\lambda$가 $C$의 고유값이다.
 
-![image.png](attachment:image.png)
+![png](/assets/img/posts/PCA/fig3.png)
 
 또한, $Cu = \lambda u$ 의 양변 앞에 $u$를 전치한 $u^\top$을 곱하면, 고유값 $\lambda$가 분산이 된다.
 
