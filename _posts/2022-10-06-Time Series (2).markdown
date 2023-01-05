@@ -287,7 +287,7 @@ RMSSE(TRUE, PRED, TRAIN)
 y(forecast) = 마지막 관측값
 ```
 
-![image.png](/assets/img/posts/navie.png)
+![image.png](/assets/img/posts/time_series/navie.png)
 
 ## 단순 평균 방법
 
@@ -297,7 +297,7 @@ y(forecast) = 마지막 관측값
 y(forecast) = 모든 과거 관측값의 평균
 ```
 
-![image.png](/assets/img/posts/simple_avg.png)
+![image.png](/assets/img/posts/time_series/simple_avg.png)
 
 ## 단순 이동 평균 방법
 
@@ -309,7 +309,7 @@ y(forecast) = 모든 과거 관측값의 평균
 y(forecast) = 이동 윈도우(moving window)의 평균
 ```
 
-![image.png](/assets/img/posts/simple_moving_avg.png)
+![image.png](/assets/img/posts/time_series/simple_moving_avg.png)
 
 윈도우 크기는 모델의 정확도를 결정하는 중요한 역할
 - 윈도우 크기가 클수록 윈도우 전체의 변화에 영향을 받을 가능성이 커진다. 
@@ -381,7 +381,7 @@ y_hat_ses['ses_forecast'].plot()
 
 
     
-![png](/assets/img/posts/output_28_1.png)
+![png](/assets/img/posts/time_series/output_28_1.png)
     
 
 
@@ -430,7 +430,7 @@ y_hat_holt['holt_forecast'].plot()
 
 
     
-![png](/assets/img/posts/output_35_2.png)
+![png](/assets/img/posts/time_series/output_35_2.png)
     
 
 
@@ -492,6 +492,6 @@ y_hat_hwa['hw_forecast'].plot()
 
 
     
-![png](/assets/img/posts/output_45_2.png)
+![png](/assets/img/posts/time_series/output_45_2.png)
     
 

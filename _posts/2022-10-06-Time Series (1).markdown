@@ -103,7 +103,7 @@ plt.show()
 
 
     
-![png](/assets/img/posts/output_12_0.png)
+![png](/assets/img/posts/time_series/output_12_0.png)
     
 
 
