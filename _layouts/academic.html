@@ -1,0 +1,26 @@
+<!doctype html>
+{% assign lang = page.lang | default: 'ko' %}{% assign t = site.data.academic[lang] %}
+{% assign root = '/' %}{% if lang == 'en' %}{% assign root = '/en/' %}{% endif %}
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | escape }} · {{ t.name }}</title>
+<meta name="description" content="{{ t.bio | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{% if page.translation %}<link rel="alternate" hreflang="{{ page.other_lang }}" href="{{ page.translation | absolute_url }}"><link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absolute_url }}">{% endif %}
+<meta property="og:title" content="{{ page.title | escape }} · {{ t.name }}"><meta property="og:description" content="{{ t.bio | escape }}"><meta property="og:type" content="website"><meta property="og:url" content="{{ page.url | absolute_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+<script src="{{ '/assets/js/academic.js' | relative_url }}" defer></script>
+{% if page.layout == 'academic-post' %}
+<script>window.MathJax = {tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+{% endif %}
+</head>
+<body>
+<a class="skip" href="#main">{{ t.skip }}</a>
+<header class="header"><a class="wordmark" href="{{ root | relative_url }}">JINUK HUH<span class="dot">.</span></a>
+<nav aria-label="{% if lang == 'ko' %}주 메뉴{% else %}Main navigation{% endif %}"><a href="{{ root | relative_url }}">{{ t.home }}</a><a href="{{ root | relative_url }}#publications">{{ t.publications }}</a><a href="{{ root | append: 'cv/' | relative_url }}">CV</a><a href="{{ root | append: 'blog/' | relative_url }}">{{ t.blog }}</a></nav>
+<div class="languages">{% if page.translation %}<a href="{{ page.translation | relative_url }}" lang="{{ page.other_lang }}" hreflang="{{ page.other_lang }}">{% if lang == 'ko' %}EN{% else %}한국어{% endif %} <span aria-hidden="true">↗</span></a>{% else %}<a href="{{ '/en/blog/' | relative_url }}" lang="en">EN index ↗</a>{% endif %}</div></header>
+<main id="main">{{ content }}</main>
+<footer><span>© {{ site.time | date: '%Y' }} Jinuk Huh</span><span>{{ t.status }}</span><a href="https://github.com/HeoJinuk">GitHub ↗</a></footer>
+</body></html>

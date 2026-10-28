@@ -1,0 +1,5 @@
+---
+layout: academic
+---
+{% assign t = site.data.academic.ko %}
+<article class="article"><header class="page-heading"><a href="{{ '/blog/' | relative_url }}">← {{ t.back }}</a><p class="eyebrow">{{ page.category }} / {{ page.date | date: '%Y.%m.%d' }}</p><h1>{{ page.title | escape }}</h1><p class="muted">{{ page.author | default: 'Jinuk Huh' }} · 한국어</p></header><div class="prose">{{ content }}</div></article>

@@ -1,5 +1,2 @@
----
-layout: robot
-# to disable this page, simply set published: false or delete this file
-#published: false
----
+User-agent: *
+Allow: /

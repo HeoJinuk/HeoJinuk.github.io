@@ -1,0 +1,6 @@
+---
+layout: academic
+---
+{% assign t = site.data.academic[page.lang] %}
+<div class="page-heading"><span class="eyebrow">RESEARCH NOTES</span><h1>{{ t.blog }}</h1><p>{{ t.notes_desc }}</p></div>
+{% include academic-posts.html limit=10000 %}

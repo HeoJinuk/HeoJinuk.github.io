@@ -1,11 +1,13 @@
 ---
+layout: academic-post
+lang: ko
 # multilingual page pair id, this must pair with translations of this page. (This name must be unique)
 lng_pair: id_Examples
 title: Time Series - (1)
 
 # post specific
 # if not specified, .name will be used from _data/owner/[language].yml
-author: Jinuk Heo
+author: Jinuk Huh
 # multiple category is not supported
 category: Time Series
 # multiple tag entries are possible

@@ -1,0 +1,3 @@
+{% for paper in site.data.publications %}
+<article class="publication"><div class="paper-year">{{ paper.year }}<span>JICS</span></div><div><h3><a href="{{ paper.doi }}">{{ paper.title }}</a></h3><p class="authors">{{ paper.authors }}</p><p class="muted">{{ paper.journal }}, {{ paper.volume }}({{ paper.issue }}), {{ paper.pages }}.</p><p>{{ t.paper_summary }}</p><div class="paper-links"><a href="{{ paper.doi }}">DOI / {{ t.read }} ↗</a><a href="{{ '/assets/publications/advanced-dyna-q.bib' | relative_url }}" download>BibTeX ↓</a></div></div></article>
+{% endfor %}
