@@ -1,0 +1,65 @@
+/* Decap CMS 3.16.3 uses Emotion component labels; these selectors theme its
+   visible controls without changing the editor's behavior or preview iframe. */
+:root { --editor-paper: #faf9f6; --editor-ink: #202b29; --editor-muted: #596661; --editor-accent: #245d4c; --editor-line: #d9dfd8; --editor-wash: #edf0e9; }
+html body { margin: 0; background: var(--editor-paper); color: var(--editor-ink); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+#nc-root { min-height: 100vh; background: var(--editor-paper); color: var(--editor-ink); font-family: inherit; }
+#nc-root [class*="AppHeader-css"],
+#nc-root [class*="EditorControlBar"] { background: var(--editor-paper); border-bottom: 1px solid var(--editor-line); box-shadow: none; }
+#nc-root [class*="AppHeaderContent"] { max-width: 1120px; margin: auto; padding: 0 40px; display: flex; align-items: center; min-height: 56px; }
+#nc-root [class*="AppHeaderContent"]::before { content: "JINUK HUH."; color: var(--editor-ink); font-size: 16px; font-weight: 800; letter-spacing: 1px; white-space: nowrap; margin-right: 48px; }
+#nc-root [class*="AppHeaderNavLink"], #nc-root [class*="AppHeaderButton"] { color: var(--editor-muted); }
+#nc-root .header-link-active, #nc-root .sidebar-active { color: var(--editor-accent); }
+#nc-root .header-link-active svg path { fill: var(--editor-accent); }
+#nc-root .sidebar-active { background: var(--editor-wash); border-left-color: var(--editor-accent); }
+#nc-root [class*="AppHeaderNavLink"] svg, #nc-root [class*="AppHeaderButton"] svg,
+#nc-root [class*="SidebarNavLink"] svg, #nc-root [class*="ViewControls"] svg { fill: currentColor; }
+#nc-root [class*="AppMainContainer"], #nc-root [class*="EditorContainer"] { background: var(--editor-paper); }
+#nc-root [class*="CollectionContainer"] { max-width: 1120px; margin: auto; padding: 28px 40px 80px; }
+#nc-root [class*="SidebarContainer"], #nc-root [class*="CollectionTopContainer"],
+#nc-root [class*="StyledSplitPane"] { background: transparent; border: 1px solid var(--editor-line); border-radius: 4px; box-shadow: none; }
+#nc-root [class*="SidebarHeading"], #nc-root [class*="CollectionTopHeading"] { color: var(--editor-ink); font-weight: 600; letter-spacing: -.4px; }
+#nc-root [class*="PaginationMessage"], #nc-root [class*="ControlHint"] { color: var(--editor-muted); }
+#nc-root [class*="CollectionTopNewButton"], #nc-root [class*="AppHeaderQuickNewButton"],
+#nc-root [class*="PublishButton"] { background: var(--editor-accent); color: #fff; border: 1px solid var(--editor-accent); border-radius: 3px; box-shadow: none; }
+#nc-root [class*="CollectionTopNewButton"]:hover, #nc-root [class*="AppHeaderQuickNewButton"]:hover,
+#nc-root [class*="PublishButton"]:hover { background: #194c3d; color: #fff; }
+#nc-root [class*="ViewControls"] { color: var(--editor-accent); }
+#nc-root [class*="ControlPaneContainer"] { background: var(--editor-paper); }
+#nc-root [class*="PreviewPaneContainer"] { border-left: 1px solid var(--editor-line); background: var(--editor-paper); }
+#nc-root [class*="FieldLabel"] { background: var(--editor-wash); color: var(--editor-muted); border-radius: 2px; font-weight: 600; }
+#nc-root input:not([type="checkbox"]), #nc-root textarea,
+#nc-root [class*="DateTimeControl"], #nc-root [class*="StyledSplitPane"],
+#nc-root [class*="control"] { border-color: var(--editor-line); color: var(--editor-ink); }
+#nc-root input:not([type="checkbox"]), #nc-root textarea { background-color: #fff; }
+#nc-root [class*="ToolbarContainer"] { background: var(--editor-wash); border-color: var(--editor-line); }
+#nc-root [class*="ToolbarToggleLabel"], #nc-root [class*="EditorToggle"] { color: var(--editor-accent); }
+#nc-root button[role="switch"][aria-checked="true"] [class*="ToggleBackground-BooleanBackground"],
+#nc-root [class*="ToolbarToggle"] [class*="ToggleBackground"] { background: var(--editor-accent); }
+#nc-root a:focus-visible, #nc-root button:focus-visible, #nc-root input:focus-visible,
+#nc-root textarea:focus-visible, #nc-root [role="button"]:focus-visible { outline: 2px solid var(--editor-accent); outline-offset: 2px; }
+#local-notice { background: var(--editor-wash); color: var(--editor-ink); border-color: var(--editor-line); }
+@media (max-width: 650px) {
+  #nc-root [class*="AppHeaderContent"] { padding: 0 16px; flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
+  #nc-root [class*="AppHeaderContent"]::before { font-size: 12px; margin-right: 14px; }
+  #nc-root [class*="CollectionContainer"] { padding: 20px 16px 80px; }
+}
+
+/* Keep metadata mounted so Decap retains its state while writing. */
+#nc-root [class*="ControlPaneContainer"][data-metadata-collapsed="true"] > [class*="ControlContainer"]:not([aria-label="markdown field"]) { display: none; }
+#nc-root .metadata-toggle { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 22px; padding: 14px 16px; color: var(--editor-ink); background: var(--editor-wash); border: 1px solid var(--editor-line); border-radius: 3px; text-align: left; cursor: pointer; font: inherit; }
+#nc-root .metadata-toggle strong { display: block; font-size: 14px; }
+#nc-root .metadata-toggle small { display: block; margin-top: 2px; color: var(--editor-muted); font-size: 12px; }
+#nc-root .metadata-toggle-action { color: var(--editor-accent); font-size: 12px; white-space: nowrap; }
+#nc-root .metadata-toggle:hover { border-color: var(--editor-accent); }
+#nc-root [aria-label="markdown field"] [data-slate-editor="true"] { min-height: 50vh; }
+
+/* Keep Decap's publish menu inside its own toolbar and align it to the right. */
+#nc-root [class*="EditorContainer"] > [class*="ToolbarContainer"] [class*="ToolbarSectionMain"] { justify-content: flex-end; }
+#nc-root [class*="EditorContainer"] > [class*="ToolbarContainer"] [class*="ToolbarSubSectionFirst"]:first-child { margin-left: auto; }
+#nc-root [class*="EditorContainer"] > [class*="ToolbarContainer"] [class*="ToolbarSubSectionLast"] { flex: 0 0 auto; }
+@media (max-width: 650px) {
+  #nc-root [class*="EditorContainer"] > [class*="ToolbarContainer"] { min-width: 0; width: 100vw; position: sticky; left: 0; }
+  #nc-root [class*="ToolbarSectionBackLink"] { min-width: 0; max-width: calc(100vw - 155px); }
+  #nc-root [class*="BackCollection"] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #nc-root [class*="ToolbarSectionMain"] { min-width: 0; }
+}

@@ -1,0 +1,5 @@
+<h3 class="research-title">{{ t.topic }}</h3>
+<p class="research-copy">{{ t.research_desc }}</p>
+<p class="research-copy">{{ t.research_inspiration_before }}<a href="https://arxiv.org/abs/2208.11173">The Alberta Plan for AI Research</a>{{ t.research_inspiration_after }}</p>
+<div class="tags">{% for tag in t.research_tags %}<span>{{ tag }}</span>{% endfor %}</div>
+<p class="muted research-reference">{{ t.research_reference_label }}: Richard S. Sutton, Michael Bowling &amp; Patrick M. Pilarski (2022). <a href="https://arxiv.org/abs/2208.11173">The Alberta Plan for AI Research</a>.</p>

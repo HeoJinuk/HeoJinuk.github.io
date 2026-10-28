@@ -2,4 +2,5 @@
 layout: academic
 ---
 {% assign post_lang = page.lang | default: "ko" %}{% assign t = site.data.academic[post_lang] %}{% assign blog_url = "/blog/" %}{% if post_lang == "en" %}{% assign blog_url = "/en/blog/" %}{% endif %}
-<article class="article"><header class="page-heading"><a href="{{ blog_url | relative_url }}">← {{ t.back }}</a><p class="eyebrow">{{ page.category }} / {{ page.date | date: '%Y.%m.%d' }}</p><h1>{{ page.title | escape }}</h1><p class="muted">{{ page.author | default: 'Jinuk Huh' }} · {% if post_lang == "en" %}English{% else %}한국어{% endif %}</p></header><div class="prose">{{ content }}</div></article>
+{% assign post_filename = page.path | split: '/' | last %}
+<article class="article"><header class="page-heading"><div class="post-heading-actions"><a href="{{ blog_url | relative_url }}">← {{ t.back }}</a><a class="post-edit" href="{{ '/admin/' | relative_url }}" data-edit-post="{{ post_filename | escape }}" hidden>{% if post_lang == "en" %}Edit{% else %}수정{% endif %} ↗</a></div><p class="eyebrow">{{ page.category }} / {{ page.date | date: '%Y.%m.%d' }}</p><h1>{{ page.title | escape }}</h1><p class="muted">{{ page.author | default: 'Jinuk Huh' }} · {% if post_lang == "en" %}English{% else %}한국어{% endif %}</p></header><div class="prose">{{ content }}</div></article>

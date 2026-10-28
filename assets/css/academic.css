@@ -4,3 +4,11 @@
 @media(max-width:650px){.header,main,footer{padding-left:22px;padding-right:22px}.header{gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:18px}.wordmark{font-size:16px}.languages{margin-left:auto;border:0;padding:0}nav{order:3;width:100%;margin:0;justify-content:space-between;gap:12px;font-size:13px}.hero{padding:48px 0}.eyebrow{font-size:10px;letter-spacing:1px}h1{font-size:46px}.name-secondary{font-size:19px;margin-left:13px}.hero-line{font-size:24px}.bio{font-size:15px}.section{grid-template-columns:1fr;gap:18px;padding:30px 0}.section-label{display:flex;gap:12px;align-items:baseline}.section-label h2{margin:0}.publication{grid-template-columns:1fr;gap:10px}.paper-year span{display:inline;margin-left:12px}.post-row{grid-template-columns:1fr 20px;gap:4px}.post-row time{grid-column:1/-1}.section-top{display:block}.contact{padding:24px 18px;margin-bottom:35px}.contact>a{font-size:20px}.contact>a span{float:none}.page-heading{padding-top:40px}.page-heading h1{font-size:36px}.article h1{font-size:30px}footer{flex-wrap:wrap}footer>span:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{body{background:white;font-size:11pt}.header,.print-button,footer,.skip{display:none}main{max-width:none;padding:0}.page-heading{padding:0 0 20px}.page-heading h1{font-size:30pt}.section{grid-template-columns:125px minmax(0,1fr);padding:18px 0;break-inside:avoid}.publication{break-inside:avoid}a{color:inherit}.paper-links a[download]{display:none}@page{margin:18mm}}
+
+.research-reference{margin:20px 0 0;font-size:12px;overflow-wrap:anywhere;word-break:normal}
+.research-copy a,.research-reference a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+.post-heading-actions{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.post-heading-actions .post-edit{color:var(--accent);border:1px solid var(--line);border-radius:3px;padding:7px 14px;font-size:13px;white-space:nowrap}
+.post-heading-actions .post-edit:hover{border-color:var(--accent)}
+@media print{.post-edit{display:none}}

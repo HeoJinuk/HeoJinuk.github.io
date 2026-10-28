@@ -3,6 +3,6 @@ layout: academic
 ---
 {% assign t = site.data.academic[page.lang] %}
 <div class="page-heading"><span class="eyebrow">CURRICULUM VITAE</span><h1>{{ t.name }}</h1><p>{{ t.role }} · {{ t.university }}</p><p>{{ t.department }}</p><a href="mailto:boan3693@gmail.com">boan3693@gmail.com</a><button class="print-button" type="button" data-print>{{ t.print }} ↗</button></div>
-<section class="section"><div class="section-label"><h2>{{ t.research }}</h2></div><div><h3>{{ t.topic }}</h3><p>{{ t.research_desc }}</p></div></section>
+<section class="section"><div class="section-label"><h2>{{ t.research }}</h2></div><div>{% include academic-research.html %}</div></section>
 <section class="section"><div class="section-label"><h2>{{ t.education }}</h2></div><div><h3>{{ t.university }}</h3><p>{{ t.department }} · {{ t.role }}</p><p class="muted">{{ t.present }}</p></div></section>
 <section class="section" id="publications"><div class="section-label"><h2>{{ t.publications }}</h2></div><div>{% include academic-publications.html %}</div></section>

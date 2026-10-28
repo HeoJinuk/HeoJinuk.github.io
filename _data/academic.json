@@ -20,12 +20,19 @@
     "all_posts": "전체 글 보기",
     "read": "읽기",
     "skip": "본문으로 건너뛰기",
-    "research_desc": "물리적 지연이 있는 시스템에서의 강화학습을 다룹니다. 대표 연구에서는 Advanced Dyna-Q를 온실 온도 제어에 적용했습니다.",
+    "research_desc": "실제 환경에서 학습하고 작동하는 강화학습에 관심이 있습니다. 장기적으로 경험을 통해 지속적으로 학습하는 에이전트를 지향합니다.",
     "paper_summary": "물리적 응답 지연을 고려한 실환경 강화학습 방법과 온실 온도 제어 응용.",
     "topic": "실환경 강화학습",
     "status": "연구 소개 · CV · 블로그",
     "back": "블로그로 돌아가기",
-    "post_note": "이 글은 한국어 원문으로 제공됩니다."
+    "post_note": "이 글은 한국어 원문으로 제공됩니다.",
+    "research_inspiration_before": "이러한 연구 비전은 ",
+    "research_inspiration_after": "에서 영감을 받았습니다.",
+    "research_reference_label": "연구 비전의 배경",
+    "research_tags": [
+      "Real-world RL",
+      "Continual learning"
+    ]
   },
   "en": {
     "name": "Jinuk Huh",
@@ -48,11 +55,18 @@
     "all_posts": "View all posts",
     "read": "Read",
     "skip": "Skip to content",
-    "research_desc": "My research addresses reinforcement learning in systems with physical delays. My published work applies Advanced Dyna-Q to greenhouse temperature control.",
+    "research_desc": "My interests lie in reinforcement learning for real-world environments. My long-term vision is to develop agents that continue learning through experience.",
     "paper_summary": "Real-world reinforcement learning with physical response delays, applied to greenhouse temperature control.",
     "topic": "Real-world reinforcement learning",
     "status": "Research · CV · Blog",
     "back": "Back to blog",
-    "post_note": "This article is available in its original Korean."
+    "post_note": "This article is available in its original Korean.",
+    "research_inspiration_before": "This research vision is inspired by ",
+    "research_inspiration_after": ".",
+    "research_reference_label": "Background for the research vision",
+    "research_tags": [
+      "Real-world RL",
+      "Continual learning"
+    ]
   }
 }
