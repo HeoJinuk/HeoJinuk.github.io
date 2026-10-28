@@ -16,3 +16,7 @@ Thumbs.db
 
 # diff files
 *.bak
+
+# Local browser editor dependencies
+node_modules/
+.local-editor/

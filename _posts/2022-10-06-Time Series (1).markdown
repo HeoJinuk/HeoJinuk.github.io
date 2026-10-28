@@ -1,4 +1,5 @@
 ---
+published: true
 layout: academic-post
 lang: ko
 # multilingual page pair id, this must pair with translations of this page. (This name must be unique)

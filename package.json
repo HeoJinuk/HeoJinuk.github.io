@@ -1,0 +1,7 @@
+{
+  "name": "jinuk-huh-local-editor",
+  "private": true,
+  "scripts": {"editor": "node scripts/editor.mjs"},
+  "devDependencies": {"decap-server": "3.11.6"},
+  "engines": {"node": ">=20"}
+}

@@ -20,7 +20,7 @@
 <a class="skip" href="#main">{{ t.skip }}</a>
 <header class="header"><a class="wordmark" href="{{ root | relative_url }}">JINUK HUH<span class="dot">.</span></a>
 <nav aria-label="{% if lang == 'ko' %}주 메뉴{% else %}Main navigation{% endif %}"><a href="{{ root | relative_url }}">{{ t.home }}</a><a href="{{ root | relative_url }}#publications">{{ t.publications }}</a><a href="{{ root | append: 'cv/' | relative_url }}">CV</a><a href="{{ root | append: 'blog/' | relative_url }}">{{ t.blog }}</a></nav>
-<div class="languages">{% if page.translation %}<a href="{{ page.translation | relative_url }}" lang="{{ page.other_lang }}" hreflang="{{ page.other_lang }}">{% if lang == 'ko' %}EN{% else %}한국어{% endif %} <span aria-hidden="true">↗</span></a>{% else %}<a href="{{ '/en/blog/' | relative_url }}" lang="en">EN index ↗</a>{% endif %}</div></header>
+<div class="languages">{% if page.translation %}<a href="{{ page.translation | relative_url }}" lang="{{ page.other_lang }}" hreflang="{{ page.other_lang }}">{% if lang == 'ko' %}EN{% else %}한국어{% endif %} <span aria-hidden="true">↗</span></a>{% else %}{% if lang == 'en' %}<a href="{{ '/blog/' | relative_url }}" lang="ko">한국어 목록 ↗</a>{% else %}<a href="{{ '/en/blog/' | relative_url }}" lang="en">EN index ↗</a>{% endif %}{% endif %}</div></header>
 <main id="main">{{ content }}</main>
 <footer><span>© {{ site.time | date: '%Y' }} Jinuk Huh</span><span>{{ t.status }}</span><a href="https://github.com/HeoJinuk">GitHub ↗</a></footer>
 </body></html>

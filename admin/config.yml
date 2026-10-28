@@ -1,0 +1,44 @@
+# The admin bootstrap only enables this config on a loopback host with a running proxy.
+backend:
+  name: github
+  repo: HeoJinuk/HeoJinuk.github.io
+  branch: main
+local_backend:
+  url: http://127.0.0.1:8081/api/v1
+locale: ko
+media_folder: assets/img/posts/uploads
+public_folder: /assets/img/posts/uploads
+publish_mode: simple
+slug:
+  encoding: unicode
+  clean_accents: false
+collections:
+  - name: posts
+    label: 블로그 글
+    label_singular: 글
+    folder: _posts
+    create: true
+    delete: false
+    extension: markdown
+    format: yaml-frontmatter
+    slug: '{{fields.date}}-{{slug}}'
+    summary: '{{title}}'
+    sortable_fields: [date, title]
+    editor:
+      preview: true
+    fields:
+      - {label: 제목, name: title, widget: string}
+      - {label: 작성일, name: date, widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, picker_utc: true}
+      - {label: 작성자, name: author, widget: hidden, default: Jinuk Huh}
+      - {label: 레이아웃, name: layout, widget: hidden, default: academic-post}
+      - label: 본문 언어
+        name: lang
+        widget: select
+        default: ko
+        options:
+          - {label: 한국어, value: ko}
+          - {label: English, value: en}
+      - {label: 분류, name: category, widget: string, default: Research Notes}
+      - {label: 태그, name: tags, widget: list, required: false, hint: '쉼표로 구분합니다.'}
+      - {label: 블로그 목록에 공개, name: published, widget: boolean, required: false, default: true, hint: '끄면 파일은 저장되지만 블로그 목록에는 나타나지 않습니다. GitHub 공개 반영은 별도입니다.'}
+      - {label: 본문, name: body, widget: markdown, modes: [rich_text, raw], sanitize_preview: true}

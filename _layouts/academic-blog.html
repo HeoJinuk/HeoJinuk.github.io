@@ -2,5 +2,5 @@
 layout: academic
 ---
 {% assign t = site.data.academic[page.lang] %}
-<div class="page-heading"><span class="eyebrow">RESEARCH NOTES</span><h1>{{ t.blog }}</h1><p>{{ t.notes_desc }}</p></div>
+<div class="page-heading"><span class="eyebrow">RESEARCH NOTES</span><h1>{{ t.blog }}</h1><p>{{ t.notes_desc }}</p><p><a href="{{ "/admin/" | relative_url }}" data-local-editor hidden>{% if page.lang == "en" %}Write / Edit posts{% else %}글쓰기 / 글 관리{% endif %} ↗</a></p></div>
 {% include academic-posts.html limit=10000 %}

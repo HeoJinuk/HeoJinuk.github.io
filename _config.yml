@@ -13,4 +13,4 @@ defaults:
       layout: academic-post
       lang: ko
       permalink: /posts/:path
-exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE.txt", "docs", "vendor"]
+exclude: ["Gemfile", "Gemfile.lock", "README.md", "LICENSE.txt", "docs", "vendor", "node_modules", "package.json", "pnpm-lock.yaml", "scripts", "블로그 글쓰기.command"]

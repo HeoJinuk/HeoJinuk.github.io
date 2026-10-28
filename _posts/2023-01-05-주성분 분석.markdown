@@ -1,6 +1,8 @@
 ---
+published: true
 layout: academic-post
 title: 주성분 분석
+date: 2023-01-05
 lang: ko
 author: Jinuk Huh
 category: Machine Learning
