@@ -72,7 +72,7 @@ if (await inUse(port) || await inUse(8081) || await inUse(4176)) {
       start('bundle', ['exec', 'jekyll', ...args], env);
     }
     if (await waitForPage()) {
-      console.log(`\n글쓰기: ${url}\n미리보기: http://127.0.0.1:${port}/blog/\n저장하면 홈페이지가 다시 빌드됩니다. 미리보기 탭을 새로고침하세요.\n종료: 이 창에서 Ctrl+C\nGitHub 공개 반영은 별도 커밋·push가 필요합니다.\n`);
+      console.log(`\n글쓰기: ${url}\n미리보기: http://127.0.0.1:${port}/blog/\n저장하면 홈페이지가 다시 빌드됩니다. 미리보기 탭을 새로고침하세요.\n종료: 이 창에서 Ctrl+C\n글 읽기 화면에서 공개하기 버튼으로 GitHub에 올릴 수 있습니다.\n`);
       if (process.platform === 'darwin' && !process.env.EDITOR_NO_OPEN) spawn('open', [url]);
     } else if (!stopping) {
       console.error('편집기 서버 시작에 실패했습니다. 위 오류를 확인해 주세요.');
