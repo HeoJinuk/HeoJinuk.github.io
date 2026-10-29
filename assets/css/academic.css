@@ -12,3 +12,8 @@
 .post-heading-actions .post-edit{color:var(--accent);border:1px solid var(--line);border-radius:3px;padding:7px 14px;font-size:13px;white-space:nowrap}
 .post-heading-actions .post-edit:hover{border-color:var(--accent)}
 @media print{.post-edit{display:none}}
+
+.post-actions{display:flex;align-items:center;gap:10px}
+.post-publish{font:inherit;font-size:13px;color:#fff;background:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.post-publish[hidden]{display:none}
+@media print{.post-publish{display:none}}

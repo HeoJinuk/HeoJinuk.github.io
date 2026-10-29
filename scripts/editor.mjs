@@ -45,8 +45,8 @@ async function waitForPage() {
   return false;
 }
 
-if (await inUse(port) || await inUse(8081)) {
-  console.error(`포트 ${port} 또는 8081이 사용 중입니다. 실행 중인 편집기 창을 확인하거나 기존 편집기를 종료해 주세요.`);
+if (await inUse(port) || await inUse(8081) || await inUse(4176)) {
+  console.error(`포트 ${port}, 8081 또는 4176이 사용 중입니다. 실행 중인 편집기 창을 확인하거나 기존 편집기를 종료해 주세요.`);
   process.exitCode = 1;
 } else {
   let proxy;
@@ -61,6 +61,7 @@ if (await inUse(port) || await inUse(8081)) {
   if (proxy) {
     mkdirSync(resolve(root, '.local-editor'), {recursive: true});
     const env = {...process.env};
+    start(process.execPath, [resolve(root, 'scripts/publisher.mjs')], env);
     start(process.execPath, [proxy], {...env, BIND_HOST: '127.0.0.1', ORIGIN: `http://127.0.0.1:${port}`, MODE: 'fs', PORT: '8081', GIT_REPO_DIRECTORY: root});
     const localGems = resolve(root, '.local-editor/gems');
     const hasLocalJekyll = existsSync(resolve(localGems, 'bin/jekyll'));

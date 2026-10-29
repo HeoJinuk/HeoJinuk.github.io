@@ -17,6 +17,8 @@
     await new Promise((resolve, reject) => {
       const script = document.createElement('script');
       script.src = 'https://cdn.jsdelivr.net/npm/decap-cms@3.16.3/dist/decap-cms.js';
+      script.integrity = 'sha384-A/Gdn928CNLufmnGWGs9RM4Q9o8bSNLeJERqBFrBjwzL7FRpoLT3MPF8Tl0+Wd2p';
+      script.crossOrigin = 'anonymous';
       script.onload = resolve;
       script.onerror = () => reject(new Error('Could not load Decap CMS'));
       document.body.append(script);
