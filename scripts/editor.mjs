@@ -1,12 +1,14 @@
-import {spawn} from 'node:child_process';
-import {existsSync, readFileSync, mkdirSync} from 'node:fs';
+import {spawn, execFile as execFileCallback} from 'node:child_process';
+import {promisify} from 'node:util';
+import {existsSync, readFileSync, mkdirSync, realpathSync} from 'node:fs';
 import {createRequire} from 'node:module';
 import {createConnection} from 'node:net';
-import {resolve, dirname} from 'node:path';
+import {resolve, dirname, basename} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const require = createRequire(import.meta.url);
+const execFile = promisify(execFileCallback);
 const port = 4174;
 const url = `http://127.0.0.1:${port}/admin/`;
 const children = [];
@@ -33,6 +35,37 @@ async function inUse(targetPort) {
     socket.once('error', () => resolve(false));
   });
 }
+
+// A reused server must belong to this checkout, not just occupy the same port.
+async function belongsToThisCheckout(targetPort) {
+  try {
+    const {stdout: pidText} = await execFile('lsof', ['-nP', '-t', `-iTCP:${targetPort}`, '-sTCP:LISTEN'], {timeout: 3000});
+    const pids = pidText.trim().split(/\s+/);
+    if (pids.length !== 1 || !/^\d+$/.test(pids[0])) return false;
+    const {stdout} = await execFile('lsof', ['-a', '-p', pids[0], '-d', 'cwd', '-Fn'], {timeout: 3000});
+    const cwdLine = stdout.split('\n').find(line => line.startsWith('n'));
+    return !!cwdLine && realpathSync(cwdLine.slice(1)) === realpathSync(root);
+  } catch { return false; }
+}
+async function existingEditorIsReady() {
+  try {
+    const ownership = await Promise.all([port, 8081, 4176].map(belongsToThisCheckout));
+    if (!ownership.every(Boolean)) return false;
+    const signal = AbortSignal.timeout(3000);
+    const [page, proxy, publisher] = await Promise.all([
+      fetch(url, {signal}),
+      fetch('http://127.0.0.1:8081/api/v1', {method: 'POST', headers: {'Content-Type': 'application/json', Origin: `http://127.0.0.1:${port}`}, body: JSON.stringify({action: 'info'}), signal}),
+      fetch('http://127.0.0.1:4176/', {signal}),
+    ]);
+    if (!page.ok || !proxy.ok || !publisher.ok) return false;
+    const [pageHtml, proxyInfo, publisherHtml] = await Promise.all([page.text(), proxy.json(), publisher.text()]);
+    return pageHtml.includes('cms-config-url') && proxyInfo.type === 'local_fs' && proxyInfo.repo === basename(root) && publisherHtml.includes('publish') && publisherHtml.includes('/review.js');
+  } catch { return false; }
+}
+function openEditor() {
+  if (process.platform === 'darwin' && !process.env.EDITOR_NO_OPEN) spawn('open', [url]);
+}
+
 async function waitForPage() {
   const deadline = Date.now() + 30000;
   while (Date.now() < deadline && !stopping) {
@@ -45,9 +78,15 @@ async function waitForPage() {
   return false;
 }
 
-if (await inUse(port) || await inUse(8081) || await inUse(4176)) {
-  console.error(`포트 ${port}, 8081 또는 4176이 사용 중입니다. 실행 중인 편집기 창을 확인하거나 기존 편집기를 종료해 주세요.`);
-  process.exitCode = 1;
+const occupied = await Promise.all([port, 8081, 4176].map(inUse));
+if (occupied.some(Boolean)) {
+  if (occupied.every(Boolean) && await existingEditorIsReady()) {
+    console.log(`이미 실행 중인 글쓰기 화면을 엽니다: ${url}`);
+    openEditor();
+  } else {
+    console.error(`포트 ${port}, 8081 또는 4176이 사용 중이지만 이 저장소의 정상적인 편집기인지 확인하지 못했습니다. 기존 프로그램을 확인한 뒤 다시 실행해 주세요.`);
+    process.exitCode = 1;
+  }
 } else {
   let proxy;
   try {
@@ -73,7 +112,7 @@ if (await inUse(port) || await inUse(8081) || await inUse(4176)) {
     }
     if (await waitForPage()) {
       console.log(`\n글쓰기: ${url}\n미리보기: http://127.0.0.1:${port}/blog/\n저장하면 홈페이지가 다시 빌드됩니다. 미리보기 탭을 새로고침하세요.\n종료: 이 창에서 Ctrl+C\n글 읽기 화면에서 공개하기 버튼으로 GitHub에 올릴 수 있습니다.\n`);
-      if (process.platform === 'darwin' && !process.env.EDITOR_NO_OPEN) spawn('open', [url]);
+      openEditor();
     } else if (!stopping) {
       console.error('편집기 서버 시작에 실패했습니다. 위 오류를 확인해 주세요.');
       stop(1);
